@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dta36bk7h7grc"]
+
+[ext_resource type="Script" uid="uid://7i1camreu8c2" path="res://Main.gd" id="1_r0du0"]
+[ext_resource type="Script" uid="uid://dthelb0hbacxe" path="res://player.gd" id="2_cm0pq"]
+[ext_resource type="Script" uid="uid://brk3suudlgrtx" path="res://Camera2D.gd" id="3_r0du0"]
+[ext_resource type="Script" uid="uid://bf4ok1is2srmf" path="res://hand.gd" id="4_cm0pq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
+size = Vector2(64, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
+size = Vector2(61056.5, 292)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcsxo"]
+size = Vector2(441, 76)
+
+[node name="Main" type="Node2D" unique_id=900209489]
+script = ExtResource("1_r0du0")
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=306468477]
+position = Vector2(43, 63)
+script = ExtResource("2_cm0pq")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="player" unique_id=587801529]
+offset_right = 64.0
+offset_bottom = 96.0
+color = Color(0.74978, 0.74978, 0.74977994, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1388230409]
+visible = false
+position = Vector2(31, 48)
+shape = SubResource("RectangleShape2D_0e48y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=930477938]
+position = Vector2(10, 1)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1910644179]
+offset_left = -1.0
+offset_top = 277.0
+offset_right = 79999.0
+offset_bottom = 577.0
+color = Color(0.40321666, 0.76676553, 0.4441163, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1747563711]
+visible = false
+position = Vector2(30525.75, 425)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=140260799]
+position = Vector2(515, 35)
+script = ExtResource("3_r0du0")
+
+[node name="hand" type="AnimatableBody2D" parent="." unique_id=1705963228]
+script = ExtResource("4_cm0pq")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hand" unique_id=1538549291]
+position = Vector2(222.5, -2)
+shape = SubResource("RectangleShape2D_dcsxo")
+
+[node name="ColorRect" type="ColorRect" parent="hand" unique_id=83750947]
+offset_left = -2.0
+offset_top = -41.0
+offset_right = 445.0
+offset_bottom = 37.0
+color = Color(0.9401356, 0.84108585, 0.8070414, 1)
