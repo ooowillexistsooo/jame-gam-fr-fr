@@ -1,0 +1,23 @@
+{
+  "synth_type": "Jinglr",
+  "version": "1.0.0",
+  "file_name": "levelcomplete",
+  "params": {
+    "masterVolume": 0.5,
+    "seed": 0.03712037120371204,
+    "instrumentSeed": 14610,
+    "phrase": "[{\"degree\":0,\"beats\":0.5},{\"degree\":1,\"beats\":0.5},{\"degree\":4,\"beats\":0.5},{\"degree\":3,\"beats\":0.5},{\"degree\":5,\"beats\":1}]",
+    "instrument": 4,
+    "key": 2,
+    "scale": 0,
+    "contour": 0,
+    "rhythm": 0,
+    "noteCount": 5,
+    "octave": 4,
+    "tempo": 167.23584787507497,
+    "swing": 0,
+    "brightness": 0.723518804067806,
+    "decay": 0.3990797284759208,
+    "echo": 0.24337963219188372
+  }
+}
