@@ -12,9 +12,18 @@ size = Vector2(64, 95)
 size = Vector2(61056.5, 292)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcsxo"]
-size = Vector2(441, 76)
+size = Vector2(434, 76)
 
-[node name="Main" type="Node2D" unique_id=900209489]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c84w1"]
+size = Vector2(223, 117.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5y03"]
+size = Vector2(10, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlkih"]
+size = Vector2(7, 79)
+
+[node name="Level1" type="Node2D" unique_id=900209489]
 script = ExtResource("1_r0du0")
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=306468477]
@@ -32,18 +41,18 @@ visible = false
 position = Vector2(31, 48)
 shape = SubResource("RectangleShape2D_0e48y")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=930477938]
-position = Vector2(10, 1)
+[node name="floor" type="StaticBody2D" parent="." unique_id=930477938]
+position = Vector2(-60, 3)
 metadata/_edit_group_ = true
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1910644179]
+[node name="ColorRect" type="ColorRect" parent="floor" unique_id=1910644179]
 offset_left = -1.0
 offset_top = 277.0
 offset_right = 79999.0
 offset_bottom = 577.0
 color = Color(0.40321666, 0.76676553, 0.4441163, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1747563711]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=1747563711]
 visible = false
 position = Vector2(30525.75, 425)
 shape = SubResource("RectangleShape2D_epypp")
@@ -53,11 +62,12 @@ position = Vector2(515, 35)
 script = ExtResource("3_r0du0")
 
 [node name="hand" type="AnimatableBody2D" parent="." unique_id=1705963228]
+position = Vector2(259, -191)
 script = ExtResource("4_cm0pq")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hand" unique_id=1538549291]
-position = Vector2(222.5, -2)
+position = Vector2(223, -2)
 shape = SubResource("RectangleShape2D_dcsxo")
 
 [node name="ColorRect" type="ColorRect" parent="hand" unique_id=83750947]
@@ -66,3 +76,18 @@ offset_top = -41.0
 offset_right = 445.0
 offset_bottom = 37.0
 color = Color(0.9401356, 0.84108585, 0.8070414, 1)
+
+[node name="GrabArea" type="Area2D" parent="hand" unique_id=402412328]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hand/GrabArea" unique_id=2016581466]
+position = Vector2(133, 85)
+shape = SubResource("RectangleShape2D_c84w1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="hand" unique_id=735386982]
+position = Vector2(440, -2.5)
+shape = SubResource("RectangleShape2D_t5y03")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="hand" unique_id=1543363264]
+position = Vector2(1.5, -1.5)
+shape = SubResource("RectangleShape2D_dlkih")

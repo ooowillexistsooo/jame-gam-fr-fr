@@ -1,0 +1,349 @@
+[gd_scene format=3 uid="uid://boet3jt730lk4"]
+
+[ext_resource type="Script" uid="uid://7i1camreu8c2" path="res://Main.gd" id="1_ihfcg"]
+[ext_resource type="Script" uid="uid://dthelb0hbacxe" path="res://player.gd" id="2_rka8t"]
+[ext_resource type="Script" uid="uid://brk3suudlgrtx" path="res://Camera2D.gd" id="3_5hph3"]
+[ext_resource type="Script" uid="uid://bf4ok1is2srmf" path="res://hand.gd" id="4_j7kpp"]
+[ext_resource type="Script" uid="uid://4u0k80mvdq4w" path="res://goal_zone.gd" id="5_rka8t"]
+[ext_resource type="Script" uid="uid://p858b348plyj" path="res://death_zone.gd" id="6_5hph3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
+size = Vector2(64, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
+size = Vector2(807, 276)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcsxo"]
+size = Vector2(434, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c84w1"]
+size = Vector2(223, 117.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5y03"]
+size = Vector2(10, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlkih"]
+size = Vector2(7, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sktr"]
+size = Vector2(72, 282)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lc_normal"]
+content_margin_left = 28.0
+content_margin_top = 12.0
+content_margin_right = 28.0
+content_margin_bottom = 12.0
+bg_color = Color(0.94, 0.84, 0.81, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lc_pressed"]
+content_margin_left = 28.0
+content_margin_top = 12.0
+content_margin_right = 28.0
+content_margin_bottom = 12.0
+bg_color = Color(0.78, 0.66, 0.63, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lc_hover"]
+content_margin_left = 28.0
+content_margin_top = 12.0
+content_margin_right = 28.0
+content_margin_bottom = 12.0
+bg_color = Color(1, 0.92, 0.89, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lc_focus"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 0.85)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7kpp"]
+size = Vector2(3000, 400)
+
+[node name="Level1" type="Node2D" unique_id=900209489]
+script = ExtResource("1_ihfcg")
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=306468477]
+position = Vector2(43, 63)
+script = ExtResource("2_rka8t")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="player" unique_id=587801529]
+offset_right = 64.0
+offset_bottom = 96.0
+color = Color(0.74978, 0.74978, 0.74977994, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1388230409]
+visible = false
+position = Vector2(31, 48)
+shape = SubResource("RectangleShape2D_0e48y")
+
+[node name="floor" type="StaticBody2D" parent="." unique_id=930477938]
+position = Vector2(28, 5)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="floor" unique_id=1910644179]
+offset_left = -1.0
+offset_top = 277.0
+offset_right = 799.0
+offset_bottom = 577.0
+color = Color(0.40321666, 0.76676553, 0.4441163, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=1747563711]
+position = Vector2(395.5, 423)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="ColorRect2" type="ColorRect" parent="floor" unique_id=199809279]
+offset_left = 1388.0
+offset_top = 281.0
+offset_right = 2188.0
+offset_bottom = 581.0
+color = Color(0.40321666, 0.76676553, 0.4441163, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="floor" unique_id=1116637350]
+position = Vector2(1793, 423)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=140260799]
+position = Vector2(515, 35)
+script = ExtResource("3_5hph3")
+
+[node name="hand" type="AnimatableBody2D" parent="." unique_id=1705963228]
+position = Vector2(259, -191)
+script = ExtResource("4_j7kpp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hand" unique_id=1538549291]
+position = Vector2(223, -2)
+shape = SubResource("RectangleShape2D_dcsxo")
+
+[node name="ColorRect" type="ColorRect" parent="hand" unique_id=83750947]
+offset_left = -2.0
+offset_top = -41.0
+offset_right = 445.0
+offset_bottom = 37.0
+color = Color(0.9401356, 0.84108585, 0.8070414, 1)
+
+[node name="GrabArea" type="Area2D" parent="hand" unique_id=402412328]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hand/GrabArea" unique_id=2016581466]
+position = Vector2(133, 85)
+shape = SubResource("RectangleShape2D_c84w1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="hand" unique_id=735386982]
+position = Vector2(440, -2.5)
+shape = SubResource("RectangleShape2D_t5y03")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="hand" unique_id=1543363264]
+position = Vector2(1.5, -1.5)
+shape = SubResource("RectangleShape2D_dlkih")
+
+[node name="GoalZone" type="Area2D" parent="." unique_id=1715976778]
+position = Vector2(1720, -27)
+script = ExtResource("5_rka8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalZone" unique_id=1970692188]
+position = Vector2(482, 184)
+shape = SubResource("RectangleShape2D_2sktr")
+
+[node name="Marker" type="ColorRect" parent="GoalZone" unique_id=1710000001]
+offset_left = 446.0
+offset_top = 43.0
+offset_right = 518.0
+offset_bottom = 325.0
+color = Color(0.960784, 0.854902, 0.360784, 0.85)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1710000002]
+
+[node name="Hint" type="Label" parent="HUD" unique_id=1710000003]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.12, 0.12, 0.2, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 18
+text = "Move A/D or arrows    Jump Space    Mouse guides the hand    Left click grabs    The hand tires - let it rest"
+horizontal_alignment = 1
+
+[node name="StaminaBar" type="Control" parent="HUD" unique_id=1710000011]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 96.0
+offset_right = 244.0
+offset_bottom = 124.0
+
+[node name="Back" type="ColorRect" parent="HUD/StaminaBar" unique_id=1710000012]
+layout_mode = 1
+offset_right = 220.0
+offset_bottom = 28.0
+color = Color(0, 0, 0, 0.45)
+
+[node name="Fill" type="ColorRect" parent="HUD/StaminaBar" unique_id=1710000013]
+layout_mode = 1
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 217.0
+offset_bottom = 25.0
+color = Color(0.35, 0.85, 0.45, 1)
+
+[node name="Label" type="Label" parent="HUD/StaminaBar" unique_id=1710000014]
+layout_mode = 1
+offset_top = -26.0
+offset_right = 220.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.12, 0.12, 0.2, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "HAND"
+
+[node name="LevelComplete" type="Control" parent="HUD" unique_id=1710000004]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="HUD/LevelComplete" unique_id=1710000005]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Card" type="ColorRect" parent="HUD/LevelComplete" unique_id=1710000006]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -180.0
+offset_right = 260.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13, 0.13, 0.18, 0.97)
+
+[node name="TitleLabel" type="Label" parent="HUD/LevelComplete" unique_id=1710000007]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 46
+text = "LEVEL 1 COMPLETE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubLabel" type="Label" parent="HUD/LevelComplete" unique_id=1710000008]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -52.0
+offset_right = 300.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.9, 1)
+theme_override_font_sizes/font_size = 20
+text = "Placeholder goal - Level 2 coming soon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RetryButton" type="Button" parent="HUD/LevelComplete" unique_id=1710000009]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = 24.0
+offset_right = 110.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.18, 0.12, 0.12, 1)
+theme_override_colors/font_pressed_color = Color(0.1, 0.07, 0.07, 1)
+theme_override_colors/font_hover_color = Color(0.1, 0.07, 0.07, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_lc_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lc_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lc_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lc_focus")
+text = "RETRY"
+
+[node name="MenuButton" type="Button" parent="HUD/LevelComplete" unique_id=1710000010]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = 96.0
+offset_right = 110.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.18, 0.12, 0.12, 1)
+theme_override_colors/font_pressed_color = Color(0.1, 0.07, 0.07, 1)
+theme_override_colors/font_hover_color = Color(0.1, 0.07, 0.07, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_lc_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lc_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lc_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lc_focus")
+text = "MENU"
+
+[node name="DeathZone" type="Area2D" parent="." unique_id=1078995797 groups=["death_zone"]]
+position = Vector2(1150, 640)
+script = ExtResource("6_5hph3")
+
+[node name="Shape" type="CollisionShape2D" parent="DeathZone" unique_id=1369731611]
+shape = SubResource("RectangleShape2D_j7kpp")
+
+[node name="SpikeVisual" type="ColorRect" parent="DeathZone" unique_id=582967853]
+offset_left = -1500.0
+offset_top = -100.0
+offset_right = 1500.0
+offset_bottom = -40.0
+color = Color(0.9, 0.2, 0.2, 0.9)
