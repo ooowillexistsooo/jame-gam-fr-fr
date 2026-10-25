@@ -166,7 +166,10 @@ size = Vector2(3000, 340)
 size = Vector2(142.25024, 1705)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_833wy"]
-size = Vector2(299, 46)
+size = Vector2(277.5, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6p8y"]
+size = Vector2(980, 20)
 
 [node name="Level3" type="Node2D" unique_id=1329524122]
 script = ExtResource("1_1jdk1")
@@ -478,8 +481,8 @@ color = Color(0.40321666, 0.76676553, 0.4441163, 1)
 position = Vector2(1451, 158)
 
 [node name="Shape" type="CollisionShape2D" parent="J2" unique_id=427319243]
-position = Vector2(465, -16)
-shape = SubResource("RectangleShape2D_833wy")
+position = Vector2(485, -16)
+shape = SubResource("RectangleShape2D_v6p8y")
 
 [node name="Rect" type="ColorRect" parent="J2" unique_id=1761260]
 offset_left = -28.0
