@@ -1,0 +1,504 @@
+[gd_scene format=3 uid="uid://do4c3oada1shc"]
+
+[ext_resource type="Script" uid="uid://7i1camreu8c2" path="res://Main.gd" id="1_1jdk1"]
+[ext_resource type="Script" uid="uid://dthelb0hbacxe" path="res://player.gd" id="1_j8bo8"]
+[ext_resource type="Script" uid="uid://brk3suudlgrtx" path="res://Camera2D.gd" id="2_1jdk1"]
+[ext_resource type="Script" uid="uid://bf4ok1is2srmf" path="res://hand.gd" id="3_6p2dc"]
+[ext_resource type="Texture2D" uid="uid://c3td0af3e7twt" path="res://idle.png" id="3_fmu3g"]
+[ext_resource type="Script" uid="uid://p858b348plyj" path="res://death_zone.gd" id="4_fmu3g"]
+[ext_resource type="Texture2D" uid="uid://c3ev05ihvtay0" path="res://run_left.png" id="4_liaj6"]
+[ext_resource type="Texture2D" uid="uid://d0mdolvvaddnv" path="res://run_right.png" id="5_b60u5"]
+[ext_resource type="Script" uid="uid://4u0k80mvdq4w" path="res://goal_zone.gd" id="6_6p2dc"]
+[ext_resource type="AudioStream" uid="uid://busjf44ol57y0" path="res://reallycooljump (1).wav" id="6_jvy75"]
+[ext_resource type="Texture2D" uid="uid://cwnstjonejdq3" path="res://hand.png" id="8_kmy7e"]
+[ext_resource type="Texture2D" uid="uid://bpenu3paksyi1" path="res://pinch.png" id="9_833wy"]
+[ext_resource type="AudioStream" uid="uid://bg0o1c1w7g1fe" path="res://levelcomplete (1).wav" id="13_g0tlw"]
+[ext_resource type="AudioStream" uid="uid://cc7k1mtueaqlf" path="res://select (1).wav" id="14_keufu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ds5r"]
+size = Vector2(93, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmy7e"]
+atlas = ExtResource("4_liaj6")
+region = Rect2(0, 0, 250, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_833wy"]
+atlas = ExtResource("4_liaj6")
+region = Rect2(250, 0, 250, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rr72"]
+atlas = ExtResource("5_b60u5")
+region = Rect2(250, 0, 250, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyffv"]
+atlas = ExtResource("5_b60u5")
+region = Rect2(0, 0, 250, 157)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_liaj6"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fmu3g")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmy7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_833wy")
+}],
+"loop": 1,
+"name": &"run_left",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rr72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyffv")
+}],
+"loop": 1,
+"name": &"run_right",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_liaj6"]
+size = Vector2(540, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8bo8"]
+size = Vector2(507, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jdk1"]
+size = Vector2(223, 117.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6p2dc"]
+size = Vector2(10, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmu3g"]
+size = Vector2(7, 79)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dlkih"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_kmy7e")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_833wy")
+}],
+"loop": 1,
+"name": &"pinch",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8bo8"]
+content_margin_left = 28.0
+content_margin_top = 12.0
+content_margin_right = 28.0
+content_margin_bottom = 12.0
+bg_color = Color(0.94, 0.84, 0.81, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jdk1"]
+content_margin_left = 28.0
+content_margin_top = 12.0
+content_margin_right = 28.0
+content_margin_bottom = 12.0
+bg_color = Color(0.78, 0.66, 0.63, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6p2dc"]
+content_margin_left = 28.0
+content_margin_top = 12.0
+content_margin_right = 28.0
+content_margin_bottom = 12.0
+bg_color = Color(1, 0.92, 0.89, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fmu3g"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 0.85)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b60u5"]
+size = Vector2(119, 204)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmy7e"]
+size = Vector2(3000, 340)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c84w1"]
+size = Vector2(142.25024, 1705)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_833wy"]
+size = Vector2(299, 46)
+
+[node name="Level3" type="Node2D" unique_id=1329524122]
+script = ExtResource("1_1jdk1")
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=501111753]
+position = Vector2(330, 334)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_j8bo8")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=265873055]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_7ds5r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=1404130004]
+sprite_frames = SubResource("SpriteFrames_liaj6")
+animation = &"run_right"
+autoplay = "idle"
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="player" unique_id=689819573]
+stream = ExtResource("6_jvy75")
+
+[node name="START" type="StaticBody2D" parent="." unique_id=1807237831]
+position = Vector2(330, 450)
+
+[node name="Shape" type="CollisionShape2D" parent="START" unique_id=1312233593]
+shape = SubResource("RectangleShape2D_liaj6")
+
+[node name="Rect" type="ColorRect" parent="START" unique_id=1056176653]
+offset_left = -270.0
+offset_top = -20.0
+offset_right = 270.0
+offset_bottom = 20.0
+color = Color(0.40321666, 0.76676553, 0.4441163, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=520812552]
+position = Vector2(515, 35)
+script = ExtResource("2_1jdk1")
+
+[node name="hand" type="AnimatableBody2D" parent="." unique_id=1642513650]
+position = Vector2(259, -191)
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("3_6p2dc")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hand" unique_id=1867899771]
+position = Vector2(174.5, -63.5)
+shape = SubResource("RectangleShape2D_j8bo8")
+
+[node name="GrabArea" type="Area2D" parent="hand" unique_id=1716969480]
+position = Vector2(44, 11)
+collision_layer = 0
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hand/GrabArea" unique_id=1589727287]
+position = Vector2(133, 85)
+shape = SubResource("RectangleShape2D_1jdk1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="hand" unique_id=1410463651]
+position = Vector2(440, -2.5)
+shape = SubResource("RectangleShape2D_6p2dc")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="hand" unique_id=53661674]
+position = Vector2(1.5, -1.5)
+shape = SubResource("RectangleShape2D_fmu3g")
+
+[node name="HandSprite" type="AnimatedSprite2D" parent="hand" unique_id=1676270887]
+position = Vector2(125, -16)
+rotation = -0.17627825
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_dlkih")
+animation = &"idle"
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1720184837]
+
+[node name="Hint" type="Label" parent="HUD" unique_id=131249578]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = 30.0
+offset_right = 2.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.12, 0.12, 0.2, 1)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="StaminaBar" type="Control" parent="HUD" unique_id=1326130727]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 96.0
+offset_right = 244.0
+offset_bottom = 124.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Back" type="ColorRect" parent="HUD/StaminaBar" unique_id=1348552451]
+layout_mode = 1
+offset_right = 220.0
+offset_bottom = 28.0
+color = Color(0, 0, 0, 0.45)
+metadata/_edit_use_anchors_ = true
+
+[node name="Fill" type="ColorRect" parent="HUD/StaminaBar" unique_id=181948572]
+layout_mode = 1
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 217.0
+offset_bottom = 25.0
+color = Color(0.35, 0.85, 0.45, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="HUD/StaminaBar" unique_id=1343609939]
+layout_mode = 1
+offset_top = -26.0
+offset_right = 220.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.12, 0.12, 0.2, 1)
+theme_override_font_sizes/font_size = 27
+text = "Grip"
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelComplete" type="Control" parent="HUD" unique_id=398292133]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="HUD/LevelComplete" unique_id=283152748]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Card" type="ColorRect" parent="HUD/LevelComplete" unique_id=735400414]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -180.0
+offset_right = 260.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13, 0.13, 0.18, 0.97)
+
+[node name="TitleLabel" type="Label" parent="HUD/LevelComplete" unique_id=1906099259]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 46
+text = "TitleLabel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubLabel" type="Label" parent="HUD/LevelComplete" unique_id=1039949534]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -52.0
+offset_right = 300.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.9, 1)
+theme_override_font_sizes/font_size = 20
+text = "The little guy made it!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RetryButton" type="Button" parent="HUD/LevelComplete" unique_id=2135842674]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = 24.0
+offset_right = 110.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.18, 0.12, 0.12, 1)
+theme_override_colors/font_pressed_color = Color(0.1, 0.07, 0.07, 1)
+theme_override_colors/font_hover_color = Color(0.1, 0.07, 0.07, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_j8bo8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1jdk1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6p2dc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fmu3g")
+text = "RETRY"
+
+[node name="MenuButton" type="Button" parent="HUD/LevelComplete" unique_id=106378984]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = 96.0
+offset_right = 110.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.18, 0.12, 0.12, 1)
+theme_override_colors/font_pressed_color = Color(0.1, 0.07, 0.07, 1)
+theme_override_colors/font_hover_color = Color(0.1, 0.07, 0.07, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_j8bo8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1jdk1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6p2dc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fmu3g")
+text = "MENU"
+
+[node name="GoalZone" type="Area2D" parent="." unique_id=2006217805]
+position = Vector2(1000, -1010)
+collision_mask = 2
+script = ExtResource("6_6p2dc")
+
+[node name="Shape" type="CollisionShape2D" parent="GoalZone" unique_id=1978583268]
+position = Vector2(1182, 691)
+shape = SubResource("RectangleShape2D_b60u5")
+
+[node name="Marker" type="ColorRect" parent="GoalZone" unique_id=137802018]
+offset_left = 1132.0
+offset_top = 589.0
+offset_right = 1232.0
+offset_bottom = 789.0
+color = Color(0.960784, 0.854902, 0.360784, 0.85)
+
+[node name="DeathZone" type="Area2D" parent="." unique_id=337503928 groups=["death_zone"]]
+position = Vector2(1150, 640)
+collision_mask = 2
+script = ExtResource("4_fmu3g")
+
+[node name="Shape" type="CollisionShape2D" parent="DeathZone" unique_id=886020589]
+position = Vector2(0, 30)
+shape = SubResource("RectangleShape2D_kmy7e")
+
+[node name="SpikeVisual" type="ColorRect" parent="DeathZone" unique_id=353005242]
+offset_left = -1500.0
+offset_top = -100.0
+offset_right = 1500.0
+offset_bottom = -40.0
+color = Color(0.9, 0.2, 0.2, 0.9)
+
+[node name="NoHandZone" type="StaticBody2D" parent="." unique_id=1177779468]
+position = Vector2(1733, 305)
+scale = Vector2(0.6, 0.6)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoHandZone" unique_id=1856833603]
+position = Vector2(-613.3335, -784.1666)
+shape = SubResource("RectangleShape2D_c84w1")
+
+[node name="ColorRect" type="ColorRect" parent="NoHandZone" unique_id=194298807]
+offset_left = -870.0
+offset_top = -3791.0
+offset_right = -550.0
+offset_bottom = 309.0
+color = Color(0.9254902, 0.49803922, 0.50980395, 0.52156866)
+
+[node name="J1" type="StaticBody2D" parent="." unique_id=2142499582]
+position = Vector2(788, 18)
+
+[node name="Shape" type="CollisionShape2D" parent="J1" unique_id=649918320]
+position = Vector2(123.5, -13)
+shape = SubResource("RectangleShape2D_833wy")
+
+[node name="Rect" type="ColorRect" parent="J1" unique_id=1061255582]
+offset_left = -28.0
+offset_top = -36.0
+offset_right = 272.0
+offset_bottom = 4.0
+color = Color(0.40321666, 0.76676553, 0.4441163, 1)
+
+[node name="J2" type="StaticBody2D" parent="." unique_id=1901995086]
+position = Vector2(1451, 158)
+
+[node name="Shape" type="CollisionShape2D" parent="J2" unique_id=427319243]
+position = Vector2(465, -16)
+shape = SubResource("RectangleShape2D_833wy")
+
+[node name="Rect" type="ColorRect" parent="J2" unique_id=1761260]
+offset_left = -28.0
+offset_top = -36.0
+offset_right = 972.0
+offset_bottom = 4.0
+color = Color(0.40321666, 0.76676553, 0.4441163, 1)
+
+[node name="WinSound" type="AudioStreamPlayer2D" parent="." unique_id=1200125948]
+stream = ExtResource("13_g0tlw")
+
+[node name="SelectSound" type="AudioStreamPlayer2D" parent="." unique_id=1750830511]
+stream = ExtResource("14_keufu")
+
+[node name="Label2" type="Label" parent="." unique_id=1989559445]
+offset_left = 1087.0
+offset_top = 374.0
+offset_right = 1688.0
+offset_bottom = 482.0
+theme_override_font_sizes/font_size = 35
+text = "this level is harder than it looks"
+horizontal_alignment = 1

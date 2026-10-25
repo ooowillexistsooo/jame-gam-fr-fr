@@ -1,15 +1,20 @@
 [gd_scene format=3 uid="uid://bg37nftyfmou6"]
 
 [ext_resource type="Script" uid="uid://7i1camreu8c2" path="res://Main.gd" id="1_main"]
+[ext_resource type="Texture2D" uid="uid://y8l8caflsc4o" path="res://sky.png" id="2_5hnhx"]
 [ext_resource type="Script" uid="uid://dthelb0hbacxe" path="res://player.gd" id="2_player"]
 [ext_resource type="Script" uid="uid://brk3suudlgrtx" path="res://Camera2D.gd" id="3_cam"]
 [ext_resource type="Script" uid="uid://bf4ok1is2srmf" path="res://hand.gd" id="4_hand"]
 [ext_resource type="Script" uid="uid://4u0k80mvdq4w" path="res://goal_zone.gd" id="5_goal"]
-[ext_resource type="Script" uid="uid://efhg863x6k4v" path="res://moving_platform.gd" id="6_mp"]
+[ext_resource type="Texture2D" uid="uid://c3td0af3e7twt" path="res://idle.png" id="7_7j8ne"]
 [ext_resource type="Script" uid="uid://p858b348plyj" path="res://death_zone.gd" id="7_dz"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
-size = Vector2(64, 95)
+[ext_resource type="Texture2D" uid="uid://c3ev05ihvtay0" path="res://run_left.png" id="8_ehv2h"]
+[ext_resource type="Texture2D" uid="uid://d0mdolvvaddnv" path="res://run_right.png" id="9_15wb7"]
+[ext_resource type="AudioStream" uid="uid://busjf44ol57y0" path="res://reallycooljump (1).wav" id="9_s77qv"]
+[ext_resource type="Texture2D" uid="uid://cwnstjonejdq3" path="res://hand.png" id="10_eoq84"]
+[ext_resource type="Texture2D" uid="uid://bpenu3paksyi1" path="res://pinch.png" id="11_yl73a"]
+[ext_resource type="AudioStream" uid="uid://bg0o1c1w7g1fe" path="res://levelcomplete (1).wav" id="13_5hnhx"]
+[ext_resource type="AudioStream" uid="uid://cc7k1mtueaqlf" path="res://select (1).wav" id="14_78pok"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flat540"]
 size = Vector2(540, 40)
@@ -17,35 +22,8 @@ size = Vector2(540, 40)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flat300"]
 size = Vector2(300, 40)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_flat400"]
-size = Vector2(400, 40)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_flat420"]
-size = Vector2(420, 40)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lift"]
-size = Vector2(140, 30)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_flat600"]
-size = Vector2(600, 40)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_death"]
-size = Vector2(3000, 400)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_goal"]
-size = Vector2(100, 200)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hand"]
-size = Vector2(434, 76)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_grab"]
-size = Vector2(223, 117.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1"]
-size = Vector2(10, 79)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2"]
-size = Vector2(7, 79)
+size = Vector2(3000, 340)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lc_normal"]
 content_margin_left = 28.0
@@ -92,24 +70,116 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_goal"]
+size = Vector2(119, 204)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flat600"]
+size = Vector2(600, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7j8ne"]
+size = Vector2(93, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmy7e"]
+atlas = ExtResource("8_ehv2h")
+region = Rect2(0, 0, 250, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_833wy"]
+atlas = ExtResource("8_ehv2h")
+region = Rect2(250, 0, 250, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rr72"]
+atlas = ExtResource("9_15wb7")
+region = Rect2(250, 0, 250, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyffv"]
+atlas = ExtResource("9_15wb7")
+region = Rect2(0, 0, 250, 157)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ehv2h"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_7j8ne")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmy7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_833wy")
+}],
+"loop": 1,
+"name": &"run_left",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rr72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyffv")
+}],
+"loop": 1,
+"name": &"run_right",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbcdb"]
+size = Vector2(523, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s77qv"]
+size = Vector2(223, 117.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hnhx"]
+size = Vector2(10, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78pok"]
+size = Vector2(7, 79)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lvfll"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_eoq84")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_yl73a")
+}],
+"loop": 1,
+"name": &"pinch",
+"speed": 5.0
+}]
+
 [node name="Level2" type="Node2D" unique_id=1369710889]
 script = ExtResource("1_main")
 spawn_point = Vector2(330, 334)
 
-[node name="player" type="CharacterBody2D" parent="." unique_id=2020902404]
-position = Vector2(330, 334)
-script = ExtResource("2_player")
-metadata/_edit_group_ = true
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1927348843]
 
-[node name="ColorRect" type="ColorRect" parent="player" unique_id=329481417]
-offset_right = 64.0
-offset_bottom = 96.0
-color = Color(0.74978, 0.74978, 0.74977994, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1169711528]
-visible = false
-position = Vector2(31, 48)
-shape = SubResource("RectangleShape2D_player")
+[node name="BackgroundVisual" type="Sprite2D" parent="Parallax2D" unique_id=742955295]
+modulate = Color(0.94108516, 0.9000257, 0.8694536, 1)
+position = Vector2(1327, -185)
+scale = Vector2(2, 2)
+texture = ExtResource("2_5hnhx")
 
 [node name="START" type="StaticBody2D" parent="." unique_id=1747087644]
 position = Vector2(330, 450)
@@ -123,31 +193,20 @@ offset_top = -20.0
 offset_right = 270.0
 offset_bottom = 20.0
 color = Color(0.40321666, 0.76676553, 0.4441163, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="J1" type="StaticBody2D" parent="." unique_id=1112646954]
 position = Vector2(910, 395)
 
 [node name="Shape" type="CollisionShape2D" parent="J1" unique_id=239628078]
+position = Vector2(135, -16)
 shape = SubResource("RectangleShape2D_flat300")
 
 [node name="Rect" type="ColorRect" parent="J1" unique_id=1562310409]
-offset_left = -150.0
-offset_top = -20.0
-offset_right = 150.0
-offset_bottom = 20.0
-color = Color(0.40321666, 0.76676553, 0.4441163, 1)
-
-[node name="J2" type="StaticBody2D" parent="." unique_id=1478773340]
-position = Vector2(1370, 340)
-
-[node name="Shape" type="CollisionShape2D" parent="J2" unique_id=253426623]
-shape = SubResource("RectangleShape2D_flat300")
-
-[node name="Rect" type="ColorRect" parent="J2" unique_id=21011919]
-offset_left = -150.0
-offset_top = -20.0
-offset_right = 150.0
-offset_bottom = 20.0
+offset_left = -28.0
+offset_top = -36.0
+offset_right = 272.0
+offset_bottom = 4.0
 color = Color(0.40321666, 0.76676553, 0.4441163, 1)
 
 [node name="J3" type="StaticBody2D" parent="." unique_id=1269285393]
@@ -157,149 +216,19 @@ position = Vector2(1810, 285)
 shape = SubResource("RectangleShape2D_flat300")
 
 [node name="Rect" type="ColorRect" parent="J3" unique_id=1389087852]
-offset_left = -150.0
-offset_top = -20.0
-offset_right = 150.0
-offset_bottom = 20.0
-color = Color(0.40321666, 0.76676553, 0.4441163, 1)
-
-[node name="P1" type="StaticBody2D" parent="." unique_id=1306359457]
-position = Vector2(1400, 120)
-
-[node name="Shape" type="CollisionShape2D" parent="P1" unique_id=132075623]
-shape = SubResource("RectangleShape2D_flat400")
-
-[node name="Rect" type="ColorRect" parent="P1" unique_id=447027952]
-offset_left = -200.0
-offset_top = -20.0
-offset_right = 200.0
-offset_bottom = 20.0
-color = Color(0.40321666, 0.76676553, 0.4441163, 1)
-
-[node name="J4" type="StaticBody2D" parent="." unique_id=991731018]
-position = Vector2(950, 65)
-
-[node name="Shape" type="CollisionShape2D" parent="J4" unique_id=2027383616]
-shape = SubResource("RectangleShape2D_flat300")
-
-[node name="Rect" type="ColorRect" parent="J4" unique_id=642039479]
-offset_left = -150.0
-offset_top = -20.0
-offset_right = 150.0
-offset_bottom = 20.0
-color = Color(0.40321666, 0.76676553, 0.4441163, 1)
-
-[node name="P2" type="StaticBody2D" parent="." unique_id=832928214]
-position = Vector2(610, -100)
-
-[node name="Shape" type="CollisionShape2D" parent="P2" unique_id=1513374944]
-shape = SubResource("RectangleShape2D_flat420")
-
-[node name="Rect" type="ColorRect" parent="P2" unique_id=358750257]
-offset_left = -210.0
-offset_top = -20.0
-offset_right = 210.0
-offset_bottom = 20.0
-color = Color(0.40321666, 0.76676553, 0.4441163, 1)
-
-[node name="J5" type="StaticBody2D" parent="." unique_id=2018381835]
-position = Vector2(1150, -155)
-
-[node name="Shape" type="CollisionShape2D" parent="J5" unique_id=1524029468]
-shape = SubResource("RectangleShape2D_flat300")
-
-[node name="Rect" type="ColorRect" parent="J5" unique_id=1654238321]
-offset_left = -150.0
-offset_top = -20.0
-offset_right = 150.0
-offset_bottom = 20.0
-color = Color(0.40321666, 0.76676553, 0.4441163, 1)
-
-[node name="Lift" type="AnimatableBody2D" parent="." unique_id=1086446036 groups=["moving_platform"]]
-position = Vector2(1400, -150)
-script = ExtResource("6_mp")
-move_offset = Vector2(0, -230)
-
-[node name="Shape" type="CollisionShape2D" parent="Lift" unique_id=1940147543]
-shape = SubResource("RectangleShape2D_lift")
-
-[node name="Rect" type="ColorRect" parent="Lift" unique_id=1879275276]
-offset_left = -70.0
-offset_top = -15.0
-offset_right = 70.0
-offset_bottom = 15.0
-color = Color(0.85, 0.55, 0.3, 1)
-
-[node name="P3" type="StaticBody2D" parent="." unique_id=918048335]
-position = Vector2(1700, -330)
-
-[node name="Shape" type="CollisionShape2D" parent="P3" unique_id=439582718]
-shape = SubResource("RectangleShape2D_flat400")
-
-[node name="Rect" type="ColorRect" parent="P3" unique_id=49721339]
-offset_left = -200.0
-offset_top = -20.0
-offset_right = 200.0
-offset_bottom = 20.0
-color = Color(0.40321666, 0.76676553, 0.4441163, 1)
-
-[node name="P4" type="StaticBody2D" parent="." unique_id=1129592107]
-position = Vector2(1100, -540)
-
-[node name="Shape" type="CollisionShape2D" parent="P4" unique_id=1526954486]
-shape = SubResource("RectangleShape2D_flat400")
-
-[node name="Rect" type="ColorRect" parent="P4" unique_id=1489063784]
-offset_left = -200.0
-offset_top = -20.0
-offset_right = 200.0
-offset_bottom = 20.0
-color = Color(0.40321666, 0.76676553, 0.4441163, 1)
-
-[node name="TopRoom" type="StaticBody2D" parent="." unique_id=1419468069]
-position = Vector2(1000, -740)
-
-[node name="Shape" type="CollisionShape2D" parent="TopRoom" unique_id=205395372]
-shape = SubResource("RectangleShape2D_flat600")
-
-[node name="Rect" type="ColorRect" parent="TopRoom" unique_id=425608950]
-offset_left = -300.0
-offset_top = -20.0
-offset_right = 300.0
-offset_bottom = 20.0
-color = Color(0.40321666, 0.76676553, 0.4441163, 1)
-
-[node name="J6" type="StaticBody2D" parent="." unique_id=1117157034]
-position = Vector2(1550, -860)
-
-[node name="Shape" type="CollisionShape2D" parent="J6" unique_id=1737810575]
-shape = SubResource("RectangleShape2D_flat300")
-
-[node name="Rect" type="ColorRect" parent="J6" unique_id=584452774]
-offset_left = -150.0
-offset_top = -20.0
-offset_right = 150.0
-offset_bottom = 20.0
-color = Color(0.40321666, 0.76676553, 0.4441163, 1)
-
-[node name="GoalPlatform" type="StaticBody2D" parent="." unique_id=2103063395]
-position = Vector2(1000, -930)
-
-[node name="Shape" type="CollisionShape2D" parent="GoalPlatform" unique_id=864653113]
-shape = SubResource("RectangleShape2D_flat600")
-
-[node name="Rect" type="ColorRect" parent="GoalPlatform" unique_id=1852850935]
-offset_left = -300.0
-offset_top = -20.0
-offset_right = 300.0
-offset_bottom = 20.0
+offset_left = -185.0
+offset_top = -13.0
+offset_right = 115.0
+offset_bottom = 27.0
 color = Color(0.40321666, 0.76676553, 0.4441163, 1)
 
 [node name="DeathZone" type="Area2D" parent="." unique_id=911646222 groups=["death_zone"]]
 position = Vector2(1150, 640)
+collision_mask = 2
 script = ExtResource("7_dz")
 
 [node name="Shape" type="CollisionShape2D" parent="DeathZone" unique_id=523972352]
+position = Vector2(0, 30)
 shape = SubResource("RectangleShape2D_death")
 
 [node name="SpikeVisual" type="ColorRect" parent="DeathZone" unique_id=352412121]
@@ -309,68 +238,23 @@ offset_right = 1500.0
 offset_bottom = -40.0
 color = Color(0.9, 0.2, 0.2, 0.9)
 
-[node name="GoalZone" type="Area2D" parent="." unique_id=1336834547]
-position = Vector2(1000, -1010)
-script = ExtResource("5_goal")
-
-[node name="Shape" type="CollisionShape2D" parent="GoalZone" unique_id=473061412]
-shape = SubResource("RectangleShape2D_goal")
-
-[node name="Marker" type="ColorRect" parent="GoalZone" unique_id=910576958]
-offset_left = -50.0
-offset_top = -100.0
-offset_right = 50.0
-offset_bottom = 100.0
-color = Color(0.960784, 0.854902, 0.360784, 0.85)
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=665276230]
 position = Vector2(515, 35)
 script = ExtResource("3_cam")
-
-[node name="hand" type="AnimatableBody2D" parent="." unique_id=1864819062]
-position = Vector2(259, -191)
-script = ExtResource("4_hand")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hand" unique_id=147776224]
-position = Vector2(223, -2)
-shape = SubResource("RectangleShape2D_hand")
-
-[node name="ColorRect" type="ColorRect" parent="hand" unique_id=2033263087]
-offset_left = -2.0
-offset_top = -41.0
-offset_right = 445.0
-offset_bottom = 37.0
-color = Color(0.9401356, 0.84108585, 0.8070414, 1)
-
-[node name="GrabArea" type="Area2D" parent="hand" unique_id=116481798]
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hand/GrabArea" unique_id=998800023]
-position = Vector2(133, 85)
-shape = SubResource("RectangleShape2D_grab")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="hand" unique_id=304031636]
-position = Vector2(440, -2.5)
-shape = SubResource("RectangleShape2D_h1")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="hand" unique_id=976918642]
-position = Vector2(1.5, -1.5)
-shape = SubResource("RectangleShape2D_h2")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1364174430]
 
 [node name="Hint" type="Label" parent="HUD" unique_id=1538649137]
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 20.0
-offset_bottom = 60.0
+offset_left = 2.0
+offset_top = 30.0
+offset_right = 2.0
+offset_bottom = 70.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.12, 0.12, 0.2, 1)
-theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 18
-text = "Move A/D or arrows    Jump Space    Mouse guides the hand    Left click grabs    The hand tires - let it rest"
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 
 [node name="StaminaBar" type="Control" parent="HUD" unique_id=59571612]
@@ -380,12 +264,14 @@ offset_left = 24.0
 offset_top = 96.0
 offset_right = 244.0
 offset_bottom = 124.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Back" type="ColorRect" parent="HUD/StaminaBar" unique_id=251376778]
 layout_mode = 1
 offset_right = 220.0
 offset_bottom = 28.0
 color = Color(0, 0, 0, 0.45)
+metadata/_edit_use_anchors_ = true
 
 [node name="Fill" type="ColorRect" parent="HUD/StaminaBar" unique_id=321130367]
 layout_mode = 1
@@ -394,16 +280,22 @@ offset_top = 3.0
 offset_right = 217.0
 offset_bottom = 25.0
 color = Color(0.35, 0.85, 0.45, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="HUD/StaminaBar" unique_id=875560518]
 layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0045454544
+anchor_top = -0.14285715
+anchor_right = -0.0045454544
+anchor_bottom = 0.035714287
 offset_top = -26.0
 offset_right = 220.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.12, 0.12, 0.2, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 18
-text = "HAND"
+theme_override_font_sizes/font_size = 31
+text = "Grip"
+metadata/_edit_use_anchors_ = true
 
 [node name="LevelComplete" type="Control" parent="HUD" unique_id=1089179818]
 visible = false
@@ -523,7 +415,113 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_lc_focus")
 text = "MENU"
 
 [node name="Label" type="Label" parent="." unique_id=634615544]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "need to change a lot of this btw i was just testing the platforming stuff
-"
+offset_left = 1320.0
+offset_top = -425.0
+offset_right = 1888.0
+offset_bottom = -317.0
+theme_override_font_sizes/font_size = 35
+text = "
+Hmmm this jump looks impossible, if only
+ there was someway to \"lift\" him up"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1284909561]
+offset_left = 516.0
+offset_top = 100.0
+offset_right = 1117.0
+offset_bottom = 208.0
+theme_override_font_sizes/font_size = 35
+text = "he may be tiny but hes heavy, your hand 
+cant move when hes standing on it"
+horizontal_alignment = 1
+
+[node name="GoalZone" type="Area2D" parent="." unique_id=1336834547]
+position = Vector2(1000, -1010)
+collision_mask = 2
+script = ExtResource("5_goal")
+
+[node name="Shape" type="CollisionShape2D" parent="GoalZone" unique_id=473061412]
+position = Vector2(1182, 691)
+shape = SubResource("RectangleShape2D_goal")
+
+[node name="Marker" type="ColorRect" parent="GoalZone" unique_id=910576958]
+offset_left = 1132.0
+offset_top = 589.0
+offset_right = 1232.0
+offset_bottom = 789.0
+color = Color(0.960784, 0.854902, 0.360784, 0.85)
+
+[node name="GoalPlatform" type="StaticBody2D" parent="." unique_id=2103063395]
+position = Vector2(1000, -930)
+
+[node name="Shape" type="CollisionShape2D" parent="GoalPlatform" unique_id=864653113]
+position = Vector2(1090, 741)
+shape = SubResource("RectangleShape2D_flat600")
+
+[node name="Rect" type="ColorRect" parent="GoalPlatform" unique_id=1852850935]
+offset_left = 778.0
+offset_top = 724.0
+offset_right = 1378.0
+offset_bottom = 764.0
+color = Color(0.40321666, 0.76676553, 0.4441163, 1)
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=921797771]
+position = Vector2(330, 334)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("2_player")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1115634963]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_7j8ne")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=394281597]
+sprite_frames = SubResource("SpriteFrames_ehv2h")
+animation = &"run_right"
+autoplay = "idle"
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="player" unique_id=1967194638]
+stream = ExtResource("9_s77qv")
+
+[node name="hand" type="AnimatableBody2D" parent="." unique_id=499601568]
+position = Vector2(259, -191)
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("4_hand")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hand" unique_id=366071717]
+position = Vector2(178.5, -37)
+shape = SubResource("RectangleShape2D_xbcdb")
+
+[node name="GrabArea" type="Area2D" parent="hand" unique_id=1435041262]
+position = Vector2(44, 11)
+collision_layer = 0
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hand/GrabArea" unique_id=40639595]
+position = Vector2(133, 85)
+shape = SubResource("RectangleShape2D_s77qv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="hand" unique_id=920942427]
+position = Vector2(440, -2.5)
+shape = SubResource("RectangleShape2D_5hnhx")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="hand" unique_id=161128355]
+position = Vector2(1.5, -1.5)
+shape = SubResource("RectangleShape2D_78pok")
+
+[node name="HandSprite" type="AnimatedSprite2D" parent="hand" unique_id=103138586]
+position = Vector2(125, -16)
+rotation = -0.17627825
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_lvfll")
+animation = &"idle"
+
+[node name="WinSound" type="AudioStreamPlayer2D" parent="." unique_id=1356043226]
+stream = ExtResource("13_5hnhx")
+
+[node name="SelectSound" type="AudioStreamPlayer2D" parent="." unique_id=1966204952]
+stream = ExtResource("14_78pok")
