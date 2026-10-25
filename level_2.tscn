@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bg37nftyfmou6"]
 
 [ext_resource type="Script" uid="uid://7i1camreu8c2" path="res://Main.gd" id="1_main"]
-[ext_resource type="Texture2D" uid="uid://y8l8caflsc4o" path="res://sky.png" id="2_5hnhx"]
 [ext_resource type="Script" uid="uid://dthelb0hbacxe" path="res://player.gd" id="2_player"]
 [ext_resource type="Script" uid="uid://brk3suudlgrtx" path="res://Camera2D.gd" id="3_cam"]
 [ext_resource type="Script" uid="uid://bf4ok1is2srmf" path="res://hand.gd" id="4_hand"]
@@ -172,14 +171,6 @@ animations = [{
 [node name="Level2" type="Node2D" unique_id=1369710889]
 script = ExtResource("1_main")
 spawn_point = Vector2(330, 334)
-
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1927348843]
-
-[node name="BackgroundVisual" type="Sprite2D" parent="Parallax2D" unique_id=742955295]
-modulate = Color(0.94108516, 0.9000257, 0.8694536, 1)
-position = Vector2(1327, -185)
-scale = Vector2(2, 2)
-texture = ExtResource("2_5hnhx")
 
 [node name="START" type="StaticBody2D" parent="." unique_id=1747087644]
 position = Vector2(330, 450)
@@ -426,9 +417,9 @@ Hmmm this jump looks impossible, if only
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="." unique_id=1284909561]
-offset_left = 516.0
+offset_left = 518.0
 offset_top = 100.0
-offset_right = 1117.0
+offset_right = 1119.0
 offset_bottom = 208.0
 theme_override_font_sizes/font_size = 35
 text = "he may be tiny but hes heavy, your hand 

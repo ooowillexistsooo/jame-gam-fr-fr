@@ -406,7 +406,7 @@ shape = SubResource("RectangleShape2D_5rr72")
 sprite_frames = SubResource("SpriteFrames_1pe0h")
 animation = &"run_right"
 autoplay = "idle"
-frame_progress = 0.52101135
+frame_progress = 0.50936884
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="player" unique_id=620276926]
 stream = ExtResource("9_ggavl")
