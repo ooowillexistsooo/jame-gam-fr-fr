@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://7i1camreu8c2" path="res://Main.gd" id="1_ihfcg"]
 [ext_resource type="Script" uid="uid://dthelb0hbacxe" path="res://player.gd" id="2_rka8t"]
-[ext_resource type="Texture2D" uid="uid://y8l8caflsc4o" path="res://sky.png" id="2_ubhxj"]
 [ext_resource type="Script" uid="uid://brk3suudlgrtx" path="res://Camera2D.gd" id="3_5hph3"]
 [ext_resource type="Script" uid="uid://bf4ok1is2srmf" path="res://hand.gd" id="4_j7kpp"]
 [ext_resource type="Script" uid="uid://4u0k80mvdq4w" path="res://goal_zone.gd" id="5_rka8t"]
@@ -165,14 +164,6 @@ animations = [{
 
 [node name="Level1" type="Node2D" unique_id=900209489]
 script = ExtResource("1_ihfcg")
-
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1504966221]
-
-[node name="BackgroundVisual" type="Sprite2D" parent="Parallax2D" unique_id=538046189]
-modulate = Color(0.94108516, 0.9000257, 0.8694536, 1)
-position = Vector2(1327, -185)
-scale = Vector2(2, 2)
-texture = ExtResource("2_ubhxj")
 
 [node name="floor" type="StaticBody2D" parent="." unique_id=930477938]
 position = Vector2(28, 5)
@@ -415,7 +406,7 @@ shape = SubResource("RectangleShape2D_5rr72")
 sprite_frames = SubResource("SpriteFrames_1pe0h")
 animation = &"run_right"
 autoplay = "idle"
-frame_progress = 0.49802524
+frame_progress = 0.52101135
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="player" unique_id=620276926]
 stream = ExtResource("9_ggavl")
