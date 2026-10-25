@@ -95,6 +95,16 @@ func _on_goal_reached() -> void:
 	level_complete.show()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
+func _unhandled_input(event: InputEvent) -> void:
+	# Check if the player just pressed the "R" key on their keyboard
+	if event is InputEventKey and event.pressed and not event.is_echo():
+		if event.keycode == KEY_R:
+			# Play your selection click sound right before reloading if it exists!
+			if select_sound:
+				select_sound.play()
+			
+			# Instantly reload the scene
+			get_tree().reload_current_scene()
 
 
 func _on_retry_pressed() -> void:
