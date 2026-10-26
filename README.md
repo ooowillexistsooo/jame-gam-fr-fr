@@ -1,4 +1,4 @@
-#a helping hand
+# a helping hand
 
 a game for game jam
 
